@@ -31,7 +31,7 @@
 #include <linux/delay.h>
 #include <linux/ratelimit.h>
 
-#define CREATE_TRACE_POINTS
+/* #define CREATE_TRACE_POINTS */
 #include <trace/events/block.h>
 
 #include "blk.h"
