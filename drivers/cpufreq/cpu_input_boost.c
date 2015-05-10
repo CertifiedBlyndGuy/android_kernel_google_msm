@@ -17,7 +17,6 @@
 #include <linux/cpufreq.h>
 #include <linux/input.h>
 #include <linux/module.h>
-#include <linux/moduleparam.h>
 #include <linux/notifier.h>
 #include <linux/slab.h>
 
@@ -37,10 +36,10 @@ static struct workqueue_struct *boost_wq;
 static struct work_struct boost_work;
 
 static bool boost_running;
-static bool freqs_available;
-static unsigned int boost_freq[3];
+static bool freqs_available __read_mostly;
+static unsigned int boost_freq[3] __read_mostly;
 static unsigned int boost_ms[3];
-static unsigned int enabled;
+static unsigned int enabled __read_mostly;
 
 static void cpu_boost(unsigned int nr_cpus)
 {
